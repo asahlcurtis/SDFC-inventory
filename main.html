@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Item Tracker</title>
+</head>
+<body>
+    <h1>Item Tracker</h1>
+    
+    <div>
+        <label for="who">Who has them:</label>
+        <input type="text" id="who">
+        <label for="when">When they'll be back:</label>
+        <input type="text" id="when">
+        <label for="what">What they are:</label>
+        <input type="text" id="what">
+        <label for="quantity">How many:</label>
+        <input type="number" id="quantity">
+        <button onclick="addItem()">Add Item</button>
+    </div>
+    
+    <table border="1">
+        <tr>
+            <th>Who has them</th>
+            <th>When they'll be back</th>
+            <th>What they are</th>
+            <th>How many</th>
+            <th>Action</th>
+        </tr>
+    </table>
+
+    <script>
+        function addItem() {
+            // Get values from input fields
+            var who = document.getElementById("who").value;
+            var when = document.getElementById("when").value;
+            var what = document.getElementById("what").value;
+            var quantity = document.getElementById("quantity").value;
+
+            // Get the table element
+            var table = document.querySelector("table");
+
+            // Create a new row and cells
+            var newRow = table.insertRow(table.rows.length);
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+            var cell4 = newRow.insertCell(3);
+            var cell5 = newRow.insertCell(4);
+
+            // Populate the cells with the values
+            cell1.innerHTML = who;
+            cell2.innerHTML = when;
+            cell3.innerHTML = what;
+            cell4.innerHTML = quantity;
+
+            // Add a delete button to the last cell
+            var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete";
+            deleteButton.onclick = function() {
+                table.deleteRow(newRow.rowIndex);
+            };
+            cell5.appendChild(deleteButton);
+
+            // Clear input fields
+            document.getElementById("who").value = "";
+            document.getElementById("when").value = "";
+            document.getElementById("what").value = "";
+            document.getElementById("quantity").value = "";
+        }
+    </script>
+</body>
+</html>

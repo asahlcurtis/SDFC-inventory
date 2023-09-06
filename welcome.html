@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <Title>Welcome</Title>
+        <h1>Welcome! Please enter password...</h1>
+
+        <br>
+        <br>
+        <p>Enter password below</p>
+        <input type="password" id="input1">
+        <br>
+        <button type="button" onclick="checkPassword()">Click here to enter the password.</button>
+
+        <script>
+            function checkPassword() {
+                var enteredPassword = document.getElementById("input1").value;
+    
+                // Replace "YourPasswordHere" with your actual password
+                if (enteredPassword === "curtis2009") {
+                    // Redirect to the desired URL
+                    window.location.href = "https://www.example.com"; // Change this URL
+                } else {
+                    alert("Incorrect password. Please try again.");
+                }
+            }
+        </script>
+
+    </body>
+</html>
